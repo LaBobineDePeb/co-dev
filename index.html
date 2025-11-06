@@ -10,9 +10,26 @@
     <title>Countdown</title>
     <style>
         body {
-            background-color: #f9f2f5; /* Fond plein, plus transparent */
+            background-color: #f9f2f5; /* Fond opaque */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
         }
-        
+
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 900;
+            color: #183059;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
         #timer {
             color: #183059;
             text-align: center;
@@ -27,8 +44,9 @@
             padding: 20px;
             width: 100px;
             border-radius: 5px;
-            background: #f9f2f5; /* Fond opaque (plus de transparence) */
+            background: #ffffff; /* Fond opaque et propre */
             color: #183059;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         .numbers {
@@ -42,6 +60,8 @@
 </head>
 <body>
     
+    <h1>PROCHAINE SESSION CO-DEV</h1> <!-- Titre ajouté ici -->
+
     <div id="timer">
         <div class="days"> 
             <div id="days" class="numbers"></div>jours
