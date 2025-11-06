@@ -39,14 +39,15 @@
             letter-spacing: 5px;
         }
 
-        .days, .hours, {
+        .days, .hours {
             display: inline-block;
             padding: 20px;
-            width: 100px;
+            width: 120px;
             border-radius: 5px;
             background: #414b3b; /* Fond opaque et propre */
             color: #fff9f3;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
         }
 
         .numbers {
@@ -60,7 +61,7 @@
 </head>
 <body>
     
-    <h1>PROCHAINE SESSION</h1> <!-- Titre ajouté ici -->
+    <h1>PROCHAINE SESSION CO-DEV</h1>
 
     <div id="timer">
         <div class="days"> 
@@ -80,7 +81,7 @@
 
             let days = Math.floor(diff / (1000 * 60 * 60 * 24));
             let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        
+
             document.getElementById("days").innerHTML = days;
             document.getElementById("hours").innerHTML = hours;
         }, 1000);
