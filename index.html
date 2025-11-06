@@ -11,49 +11,59 @@
     <style>
         body {
             background-color: #fff9f3; /* Fond opaque */
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+            margin: 0;
+            padding: 40px 0;
         }
 
         h1 {
             font-family: 'Montserrat', sans-serif;
-            font-weight: 900;
+            font-weight: 800;
             color: #f15f9c;
             text-transform: uppercase;
             letter-spacing: 3px;
             margin-bottom: 30px;
-            text-align: center;
         }
 
         #timer {
             color: #8ca87c;
-            text-align: center;
             text-transform: uppercase;
-            font-family: 'Lato', sans-serif;
             font-size: 0.7em;
             letter-spacing: 5px;
+            margin-bottom: 25px; /* espace avant le titre vert */
         }
 
-        .days, .hours, .minutes, .seconds {
+        .days, .hours {
             display: inline-block;
             padding: 20px;
             width: 100px;
             border-radius: 5px;
-            background: #414b3b; /* Fond opaque et propre */
+            background: #414b3b; /* Fond opaque */
             color: #fff9f3;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            margin: 0 10px;
         }
 
         .numbers {
             font-family: "Corben", serif;
             font-weight: 700;
-            font-style: normal;
             font-size: 4em;
-            text-align: center;
+        }
+
+        /* Style du titre sous le compte à rebours */
+        h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            color: #4CAF50; /* Vert MAINTENUE */
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     
-    <h1>PROCHAINE SESSION</h1> <!-- Titre ajouté ici -->
+    <h1>PROCHAINE SESSION</h1>
 
     <div id="timer">
         <div class="days"> 
@@ -62,13 +72,10 @@
         <div class="hours"> 
             <div id="hours" class="numbers"></div>heures
         </div> 
-        <div class="minutes"> 
-            <div id="minutes" class="numbers"></div>minutes
-        </div> 
-        <div class="seconds"> 
-            <div id="seconds" class="numbers"></div>secondes
-        </div> 
     </div>
+
+    <!-- Le titre s’affiche bien ici -->
+    <h2>MAINTENUE</h2>
 
     <script>
         const myDate = new Date('Nov 20, 2025 10:45:00');
@@ -79,13 +86,9 @@
 
             let days = Math.floor(diff / (1000 * 60 * 60 * 24));
             let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
             document.getElementById("days").innerHTML = days;
             document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
         }, 1000);
     </script>
 </body>
