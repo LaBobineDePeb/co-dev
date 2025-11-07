@@ -1,105 +1,84 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap" rel="stylesheet">    
-    <title>Countdown</title>
-    <style>
-        body {
-            background-color: #fff9f3; /* Fond opaque */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Montserrat:900">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap" rel="stylesheet">    
+  <title>Countdown</title>
+  <style>
+    body {
+      background-color: #fff9f3;
+      text-align: center;
+    }
 
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            color: #f15f9c;
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-bottom: 30px;
-            text-align: center;
-        }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #f15f9c;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 30px;
+    }
 
-        #timer {
-            color: #8ca87c;
-            text-align: center;
-            text-transform: uppercase;
-            font-size: 0.7em;
-            letter-spacing: 5px;
-            margin-bottom: 25px; /* espace avant le titre vert */
-        }
+    #timer {
+      color: #8ca87c;
+      text-transform: uppercase;
+      font-size: 0.9em;
+      letter-spacing: 3px;
+      display: inline-flex;
+      align-items: baseline;
+      justify-content: center;
+      background: #414b3b;
+      border-radius: 10px;
+      padding: 15px 30px;
+      color: #fff9f3;
+    }
 
-        .days, .hours, .minutes, .seconds {
-            display: inline-block;
-            padding: 20px;
-            width: 100px;
-            border-radius: 5px;
-            background: #414b3b; /* Fond opaque */
-            color: #fff9f3;
-        }
+    #days {
+      font-family: "Corben", serif;
+      font-weight: 700;
+      font-style: normal;
+      font-size: 4em;
+      margin-right: 10px;
+      color: #fff9f3;
+    }
 
-        .numbers {
-            font-family: "Corben", serif;
-            font-weight: 700;
-            font-style: normal;
-            font-size: 4em;
-            text-align: center;
-        }
-
-        /* Style du titre sous le compte à rebours */
-        h2 {
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-            color: #4CAF50; /* Vert #4CAF50 Rouge #e63946 */
-            text-transform: uppercase;
-            letter-spacing: 3px;
-            margin-top: 10px;
-            text-align: center;
-        }
-    </style>
+    /* Titre vert */
+    h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 800;
+      color: #4CAF50;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-    
-    <h1>PROCHAINE SESSION</h1>
+  
+  <h1>PROCHAINE SESSION</h1>
 
-    <div id="timer">
-        <div class="days"> 
-            <div id="days" class="numbers"></div>jours
-        </div> 
-        <div class="hours"> 
-            <div id="hours" class="numbers"></div>heures
-        </div> 
-        <div class="minutes"> 
-            <div id="minutes" class="numbers"></div>minutes
-        </div> 
-        <div class="seconds"> 
-            <div id="seconds" class="numbers"></div>secondes
-        </div> 
-    </div>
+  <div id="timer">
+    <div id="days" class="numbers"></div>
+    <div>JOURS</div>
+  </div>
 
-    <!-- Le titre s’affiche bien ici -->
-    <h2>MAINTENUE</h2>
+  <h2>MAINTENUE</h2>
 
-    <script>
-        const myDate = new Date('Nov 20, 2025 10:45:00');
+  <script>
+    const myDate = new Date('Nov 20, 2025 10:45:00');
 
-        let timer = setInterval(function() {
-            const today = new Date().getTime();
-            const diff = myDate - today;
+    setInterval(function() {
+      const today = new Date().getTime();
+      const diff = myDate - today;
 
-            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      document.getElementById("days").innerHTML = days;
+    }, 1000);
+  </script>
 
-            document.getElementById("days").innerHTML = days;
-            document.getElementById("hours").innerHTML = hours;
-            document.getElementById("minutes").innerHTML = minutes;
-            document.getElementById("seconds").innerHTML = seconds;
-        }, 1000);
-    </script>
 </body>
 </html>
